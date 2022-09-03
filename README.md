@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/etuned/conmodus/main/web/public/conmodus-logo.svg" alt="Logo" width="45" height="45" /> Conmodus Education Platform <br> Open Source Software
+# <img src="https://raw.githubusercontent.com/etuned/conmodus/main/web/public/conmodus-logo.svg" alt="Logo" width="35" height="35" /> Conmodus - Open Source Software
 
 Naming is hard but Conmodus is Latin with the English meanings of useful, cozy, advantageous, of full measure, of full weight, and most importantly EASY. The intention behind this open source software is to create a way for education to have a tool that can be used for free and help not only teachers deliver content to students but also allow students to have tools to assist them in their studies.
 
