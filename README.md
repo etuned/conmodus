@@ -6,7 +6,7 @@ The point is that this software can be set up with ease, so costs can be kept to
 
 ## How to use at this early stage.
 
-Execute [Git Clone](https://github.com/etuned/conmodus) then use [npm](https://docs.npmjs.com/) with the steps below:
+Execute [Git Clone on the repo](https://github.com/etuned/conmodus) then use [npm](https://docs.npmjs.com/) and [Docker](https://www.docker.com/) with the steps below:
 
 You will need the latest Node version, and Docker with Docker Compose to use locally.
 
@@ -31,8 +31,8 @@ cd hasura
 docker-compose up -d
 ```
 
-Currently the docker-compose file needs manual setup and will need the database to be built from scratch each time. This will change as time progresses.
+Currently the docker-compose file needs manual setup and will need the database to be built from scratch if this repo is cloned or forked. This will change as time progresses.
 
-note: This is a monorepo, so there is no need to move to the web folder.
+note: This is a monorepo, so there is no need to move to the web folder to run any commands.
 
 Thanks for checking in on Conmodus!
