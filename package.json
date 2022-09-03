@@ -1,0 +1,14 @@
+{
+  "name": "conmodus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm --prefix ./web/ install",
+    "dev": "npm --prefix ./web/ run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Edwin Bartunek",
+  "license": "ISC"
+}
