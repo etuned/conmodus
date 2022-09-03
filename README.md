@@ -25,13 +25,13 @@ Install command:
 npm install
 ```
 
-if you want to start Hasura you will need to run these commands:
+Hasura needs to be run manually currently, so run these commands:
 ```bash
 cd hasura
 docker-compose up -d
 ```
 
-Currently the docker-compose file needs manual setup and will need the database to be built from scratch if this repo is cloned or forked. This will change as time progresses.
+Currently the docker-compose file for Hasura needs manual setup which means the database needs to be built from scratch if this repo is cloned or forked. This will change as time progresses. The goal of this project is to make the setup process as smooth and easy to use as possible.
 
 note: This is a monorepo, so there is no need to move to the web folder to run any commands.
 
