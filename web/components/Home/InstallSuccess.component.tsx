@@ -47,11 +47,11 @@ interface Props {
 
 export default function InstallSuccess({siteName}: Props) {
 return (
-      <Box>
+      <>
       <Head>
-        <title>Install Success - {siteName ? siteName : "Conmodus"}</title>
+        <title>{`Install Success - ${siteName ? siteName : 'Conmodus'}`}</title>
       </Head>
-    
+      <Box>
       <Container size={{ '@initial': '1', '@bp1': '2' }}>  
       <ConmodusLogo/>
         <Text as="h1">Welcome to {siteName ? siteName : "Conmodus"}.</Text>
@@ -61,5 +61,6 @@ return (
         </Text>
       </Container>
     </Box>
+    </>
 )
 }

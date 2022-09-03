@@ -1,12 +1,12 @@
 
 import Head from "next/head";
-import { IntialSettings, SiteName } from "../../types"
+import { GlobalSettings } from "../../types"
 
 interface Props {
-  intialSettings: [IntialSettings];
+  globalSettings: [GlobalSettings];
 }
 
-export default function Setup({intialSettings}: Props) {
+export default function Setup({globalSettings}: Props) {
   const {
     isFirstVisit, 
     isInstallSuccess, 
@@ -15,7 +15,7 @@ export default function Setup({intialSettings}: Props) {
     isMaintenanceMode, 
     maintenanceMessage,
     siteName
-  } = intialSettings[0]
+  } = globalSettings[0]
   
   return (
     <>
@@ -29,7 +29,7 @@ export default function Setup({intialSettings}: Props) {
 }
 
 export async function getStaticProps() {
-  const intialSettings = 
+  const globalSettings = 
    [
       {
         "id": "4b8ba481-1941-469e-9b45-583dcf9a64bd",
@@ -45,7 +45,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      intialSettings
+      globalSettings
     },
   };
 }

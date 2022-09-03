@@ -1,17 +1,21 @@
 import Head from 'next/head'
+
+import { gql } from "@apollo/client";
+import client from "../lib/apollo-client";
+
 import InstallFailed from "../components/Home/InstallFailed.component"
 import InstallSuccess from "../components/Home/InstallSuccess.component"
 import { useRouter } from "next/router"
 import MaintenanceMode from "../components/Home/MaintenanceMode.component"
 
-import { IntialSettings, SiteName } from "../types"
+import { GlobalSettings, SiteName } from "../types"
 
 interface Props {
-  intialSettings: [IntialSettings];
+  globalSettings: GlobalSettings;
   siteName: SiteName;
 }
 
-export default function Home({intialSettings}: Props) {
+export default function Home({globalSettings}: Props) {
   const {
     isFirstVisit, 
     isInstallSuccess, 
@@ -20,7 +24,7 @@ export default function Home({intialSettings}: Props) {
     isMaintenanceMode, 
     maintenanceMessage,
     siteName
-  } = intialSettings[0]
+  } = globalSettings
   
   if (
     isFirstVisit &&
@@ -38,15 +42,9 @@ export default function Home({intialSettings}: Props) {
     !isMaintenanceMode
     ) {
        return (
-        <>
-          <Head>
-            <title>Under Maintenance - {siteName ? siteName : "Conmodus"}</title>
-          </Head> 
           <InstallFailed siteName={siteName} />
-        </>
-   
-  )
-  }
+          )
+        }
   else if (
     isMaintenanceMode
     ) {
@@ -60,23 +58,29 @@ export default function Home({intialSettings}: Props) {
 }
 
 export async function getStaticProps() {
-  const intialSettings = 
-   [
-      {
-        "id": "4b8ba481-1941-469e-9b45-583dcf9a64bd",
-        "isAdminSet": false,
-        "isFirstVisit": true,
-        "isInstallSuccess": true,
-        "isOperationSuccess": true,
-        "isMaintenanceMode": false,
-        "maintenanceMessage": "We are updating some course materials. The system will be back online in 1 hour.",
-        "siteName": "Conmodus"
-      }
-   ]
+ const { data } = await client.query({
+      query: gql`
+        query globals {
+          globalSettings {
+            id
+            isAdminSet
+            isFirstVisit
+            isInstallSuccess
+            isMaintenanceMode
+            isOperationSuccess
+            maintenanceMessage
+            siteName
+          }
+        }
+      `,
+    });
+
+    console.log(data.globalSettings[0]);
 
   return {
     props: {
-      intialSettings
+      globalSettings: data.globalSettings[0],
+    revalidate: 1,
     },
   };
 }

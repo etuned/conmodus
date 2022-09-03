@@ -47,18 +47,19 @@ interface Props {
 
 export default function InstallFailed({siteName}: Props) {
 return (
-      <Box>
-      <Head>
-        <title>Install Failed - {siteName ? siteName : "Conmodus"}</title>
-      </Head>
-    
-      <Container size={{ '@initial': '1', '@bp1': '2' }}>  
-      <ConmodusLogo/>
-        <Text as="h1">{siteName ? siteName : "Conmodus"} Install Failed!</Text>
-        <Text>
-          Something went wrong in the install process.
-        </Text>
-      </Container>
-    </Box>
+      <>
+        <Head>
+          <title>{`Install Failed - ${siteName ? siteName : 'Conmodus'}`}</title>
+        </Head>
+        <Box>
+        <Container size={{ '@initial': '1', '@bp1': '2' }}>  
+        <ConmodusLogo/>
+          <Text as="h1">{siteName ? siteName : "Conmodus"} Install Failed!</Text>
+          <Text>
+            Something went wrong in the install process.
+          </Text>
+        </Container>
+      </Box>
+    </>
 )
 }

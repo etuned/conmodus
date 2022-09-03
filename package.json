@@ -1,14 +1,16 @@
 {
   "name": "conmodus",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A modern education platform for a modern world",
   "main": "index.js",
   "scripts": {
     "postinstall": "npm --prefix ./web/ install",
     "dev": "npm --prefix ./web/ run dev",
+    "start": "npm --prefix ./web/ run start",
+    "build": "npm --prefix ./web/ run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["Next.js","Hasura","Stitches","Radix UI","Typescript"],
   "author": "Edwin Bartunek",
-  "license": "ISC"
+  "license": "MIT"
 }

@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import ConmodusLogo from '../ConmodusLogo'
 import { styled } from '../../stitches.config'
 import { MaintenanceMessage, SiteName } from '../../types'
@@ -47,27 +48,28 @@ interface Props {
 
 export default function MaintenanceMode({maintenanceMessage, siteName}: Props) {
 return (
-      <Box>
-      <Container size={{ '@initial': '1', '@bp1': '2' }}>  
-      <ConmodusLogo/>
-        <Text as="h1">{siteName ? siteName : "Conmodus"} is in Maintenance Mode</Text>
-        {!maintenanceMessage ? 
-        (
-        <Text>
-          The adminstrators are updating content and the system will be unavailable.
-        </Text>
-        ) 
-        : 
-        (
-        <Text>
-          Message from the admin user: <br/>{maintenanceMessage}
-        </Text>
-        )}
-        
-        
-
-
-      </Container>
-    </Box>
+      <>
+       <Head>
+          <title>{`Under Maintenance - ${siteName ? siteName : 'Conmodus'}`}</title>
+        </Head>
+        <Box>
+        <Container size={{ '@initial': '1', '@bp1': '2' }}>  
+        <ConmodusLogo/>
+          <Text as="h1">{siteName ? siteName : "Conmodus"} is in Maintenance Mode</Text>
+          {!maintenanceMessage ? 
+          (
+          <Text>
+            The adminstrators are updating content and the system will be unavailable.
+          </Text>
+          ) 
+          : 
+          (
+          <Text>
+            Message from the admin user: <br/>{maintenanceMessage}
+          </Text>
+          )}
+        </Container>
+      </Box>
+    </>
 )
 }

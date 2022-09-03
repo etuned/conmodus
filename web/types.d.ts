@@ -1,4 +1,4 @@
-export interface IntialSettings
+export interface GlobalSettings
     {
         id: string;
         isAdminSet: boolean;
