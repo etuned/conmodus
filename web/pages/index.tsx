@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import InstallFailed from "../components/Home/InstallFailed.component"
 import InstallSuccess from "../components/Home/InstallSuccess.component"
 import { useRouter } from "next/router"
@@ -37,7 +38,13 @@ export default function Home({intialSettings}: Props) {
     !isMaintenanceMode
     ) {
        return (
-    <InstallFailed siteName={siteName} />
+        <>
+          <Head>
+            <title>Under Maintenance - {siteName ? siteName : "Conmodus"}</title>
+          </Head> 
+          <InstallFailed siteName={siteName} />
+        </>
+   
   )
   }
   else if (
@@ -61,7 +68,7 @@ export async function getStaticProps() {
         "isFirstVisit": true,
         "isInstallSuccess": true,
         "isOperationSuccess": true,
-        "isMaintenanceMode": true,
+        "isMaintenanceMode": false,
         "maintenanceMessage": "We are updating some course materials. The system will be back online in 1 hour.",
         "siteName": "Conmodus"
       }

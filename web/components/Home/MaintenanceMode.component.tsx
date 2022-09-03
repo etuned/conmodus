@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import ConmodusLogo from '../ConmodusLogo'
 import { styled } from '../../stitches.config'
 import { MaintenanceMessage, SiteName } from '../../types'
@@ -49,10 +48,6 @@ interface Props {
 export default function MaintenanceMode({maintenanceMessage, siteName}: Props) {
 return (
       <Box>
-      <Head>
-        <title>Under Maintenance - {siteName ? siteName : "Conmodus"}</title>
-      </Head>
-    
       <Container size={{ '@initial': '1', '@bp1': '2' }}>  
       <ConmodusLogo/>
         <Text as="h1">{siteName ? siteName : "Conmodus"} is in Maintenance Mode</Text>
